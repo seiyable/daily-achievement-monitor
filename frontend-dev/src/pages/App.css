@@ -1,0 +1,8 @@
+.App {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  max-width: 1920px;
+}

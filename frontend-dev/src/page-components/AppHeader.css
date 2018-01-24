@@ -1,0 +1,15 @@
+.header {
+  position: relative;
+  background-color: #222;
+  height: 60px;
+  color: white;
+}
+
+.appTitle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
