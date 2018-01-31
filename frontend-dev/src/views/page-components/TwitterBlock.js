@@ -93,7 +93,12 @@ class TwitterBlock extends Component {
     return (
       <div className={styles.wrapper}>
         {this.state.chartdata &&
-          <Line data={this.state.chartdata}/>
+          <Line
+            data={this.state.chartdata}
+            options={{
+              maintainAspectRatio: false
+            }}
+          />
         }
       </div>
     )

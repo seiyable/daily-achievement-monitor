@@ -2,8 +2,8 @@
   display: inline-block;
   width: 50%;
   height: 340px;
-  background-color: wheat;
-  border: 1px solid brown;
+  /* background-color: wheat; */
+  /* border: 1px solid brown; */
 }
 
 @media (max-width: 1200px) {
