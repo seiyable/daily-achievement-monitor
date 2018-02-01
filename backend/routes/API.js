@@ -12,6 +12,9 @@ var client = new Twitter({
   access_token_secret: config.twitter.access_token_secret
 });
 
+var screen_name = config.twitter.screen_name
+
+
 // ===================================================================
 /* Subscribe to my twitter account acctivity using webhook */
 router.post('/twitter/webhook', function(req, res, next) {
@@ -31,7 +34,7 @@ router.get('/twitter/webhook', function(req, res, next) {
 /* Return the list of numebers of tweets you made on each day in recent 30 days */
 router.get('/twitter', function(req, res, next) {
   var params = {
-    screen_name: 'iiyon5884',
+    screen_name: screen_name,
     count: 200
   };
 
@@ -48,8 +51,8 @@ router.get('/twitter', function(req, res, next) {
         var created_at = tweets[i].created_at
         var text = tweets[i].text
 
+        // get unix time
         var unix = new Date(created_at).getTime()
-        console.log('d', unix)
 
         data.push({
           id: id,
@@ -57,7 +60,10 @@ router.get('/twitter', function(req, res, next) {
           text: text
         })
       }
-      res.json({data:data})
+
+      // ascending sort
+      data.sort((a, b) => (a.created_at - b.created_at))
+      res.json({tweets: data})
     }
   });
 
